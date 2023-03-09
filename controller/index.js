@@ -70,6 +70,32 @@ bodyParser.json(),
 route.delete('/product/:id', 
 (req, res)=> {
     product.deleteProduct(req, res);
+    })
+//Cart
+route.post('/user/:id/cart',
+bodyParser.json(),
+(req,res)=>{cart.addToCart(req,res);
 })
+//get cart items
+route.get('/user/:id/carts',(req,res)=>
+{cart.getCartItems(req,res)})
+//update cart item
+route.put('/user/:id/cart',
+bodyParser.json(),
+(req,res)=>{cart.updateCartItem(req,res)})
+//delete delete item from cart
+route.delete('/user/:id/cart',(req,res) =>
+{cart.removeCartItem(req,res)}
+)
+
+
+
+
+
+
+
+
+
+
 
 module.exports = route;

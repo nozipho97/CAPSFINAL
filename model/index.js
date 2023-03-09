@@ -3,7 +3,7 @@ const db = require('../config');
 //import bcypt module 
 const { hash, compare, hashSync } = require('bcrypt');
 //
-const { createToken } = require('../middleware/AuthenticatedUser');
+const { createToken } = require('../middleware/AuthenticatedUser.js');
 
 //User Class
 class User {
@@ -21,7 +21,6 @@ class User {
                 
             } else {
                 await compare(userPass, data[0].userPass, (cErr, cResult) => {
-                    if (cErr) throw cErr;
                     //create token
                     const jwToken =
                         createToken({
