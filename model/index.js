@@ -111,7 +111,7 @@ class User {
                 });
                 res.status(200).json({ msg: "A user record was saved." })
             }
-        })
+        }) 
     }
     updateUser(req, res) {
         let data = req.body;
