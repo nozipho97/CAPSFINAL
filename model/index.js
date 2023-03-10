@@ -262,6 +262,7 @@ class Cart {
         })
     }
 }
+
 // Export classes 
 module.exports = {
     User, 

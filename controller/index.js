@@ -14,6 +14,7 @@ const product = new Product();
 
 //Create Cart instance
 const cart = new Cart();
+
 // ^/$|/cap
 route.get('^/$|/finalProjectCap', (req, res)=>{
     res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
@@ -24,10 +25,10 @@ route.post('/login', bodyParser.json(), (req, res)=>{
     user.login(req, res);
 })
 // Fetch a single user
-route.get('/user/:id', 
-(req, res)=> {
-    product.fetchUser(req, res);
+route.get('/user/:id', (req, res)=> {
+    user.fetchUser(req, res);
 })
+
 // Retrieve all users
 route.get('/users', (req, res)=>{
     user.fetchUsers(req, res);
@@ -71,31 +72,31 @@ route.delete('/product/:id',
 (req, res)=> {
     product.deleteProduct(req, res);
     })
+
+
 //Cart
+
+
 route.post('/user/:id/cart',
 bodyParser.json(),
 (req,res)=>{cart.addToCart(req,res);
-})
+    })
+
 //get cart items
-route.get('/user/:id/carts',(req,res)=>
-{cart.getCartItems(req,res)})
+route.get('/user/:id/cart',(req,res)=>
+{ cart.getCartItems(req, res) })
+
+
 //update cart item
+
 route.put('/user/:id/cart',
 bodyParser.json(),
-(req,res)=>{cart.updateCartItem(req,res)})
-//delete delete item from cart
+    (req, res) => { cart.updateCartItem(req, res) })
+
+
+// delete item from cart
 route.delete('/user/:id/cart',(req,res) =>
 {cart.removeCartItem(req,res)}
 )
-
-
-
-
-
-
-
-
-
-
 
 module.exports = route;

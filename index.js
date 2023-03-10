@@ -4,11 +4,11 @@ const route = require('./controller');
 // cors
 const cors = require('cors');
 // port 
-const port = parseInt(process.env.PORT) || 4000;
+const port = parseInt(process.env.PORT) || 2000;
 // Express app
 const app = express();
 // Middleware
-const {errorHandling} = require('./middleware/ErrorHandling');
+const {errorHandling} = require('./middleware/errorHandling');
 //
 const cookieParser = require('cookie-parser');
 /*
