@@ -27,7 +27,7 @@ app.use(route);
 app.use(
     cors(),
     cookieParser(),
-    express.json,
+    express.json(),
     express.urlencoded({extended: false})
 )
 
@@ -36,4 +36,4 @@ app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`)
 });
 // Handling all errors
-// app.use(errorHandling);
+app.use(errorHandling);
