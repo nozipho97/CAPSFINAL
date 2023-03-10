@@ -1,5 +1,5 @@
 //import database connection from the config folder
-const db = require('../config');
+const db = require('../config/index');
 //import bcypt module 
 const { hash, compare, hashSync } = require('bcrypt');
 //
