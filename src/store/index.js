@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
-// import axios from 'axios'
-const finalCapURL = 'https://finalcap.onrender.com';
+import axios from 'axios'
+const finalCapURL = 'https://finalcap.onrender.com/';
 
 export default createStore({
   state: {
@@ -46,7 +46,7 @@ export default createStore({
       }
     },
     fetchProducts: async (context) => {
-      const response = await axios.get(`${finalCapURL}products`);
+      const response = await axios.get(`${finalCapURL}Products`);
       const { results } = response.data;
       context.commit("setProducts", results);
     },

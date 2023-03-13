@@ -1,47 +1,51 @@
 <template>
-<div class="hero">
-    <nav class="navbar navbar-expand-lg navbar-light bg-e8bf07 fixed-top ">
-        <div class="container-fluid">
-        <img src="https://i.postimg.cc/ydGcjwVb/logo-seek-removebg-preview.png">
-          <a class="navbar-brand" href="/home">S E E K</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/Home"><i class="fa-solid fa-house fa-bounce"></i>Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Products"><i class="fa-brands fa-product-hunt fa-bounce"></i>Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Admin"><i class="fa-solid fa-lock fa-bounce"></i>Admin</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Contact"><i class="fa-solid fa-address-book fa-bounce"></i>Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Login"><i class="fa-solid fa-user fa-bounce"></i> Sign In</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Register"><i class="fa-solid fa-registered fa-bounce"></i> Register</a>
-              </li>
-              </ul>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <img src="https://i.postimg.cc/Y9JfqQx7/logo-seek-fococlipping-standard.png" alt="Logo" width="70" height="50" class="d-inline-block align-text-top">
+        
+    
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <div class="">
+            
           </div>
-        </div>
-      </nav>
-</div>
+          <li class="nav-item">
+           <RouterLink to="/"><i class="fa fa-house"></i>HOME</RouterLink>
+          </li> 
+          <li class="nav-item">
+           <router-link to="/products"><i class=" fa fa-basket-shopping"></i>MENU</router-link> 
+          </li>
+          <li class="nav-item">
+              <RouterLink to="/Admin"><i class="fa fa-user-pen"></i>ADMIN</RouterLink>
+          </li>
+          <li class="nav-item">
+            <li class="nav-item end">
+              <router-link to="/contact"><i class="fa-sharp fa-solid fa-phone"></i>CONTACT US</router-link>
+            </li>
+            <li class="nav-item end">
+            <router-link to="/wish"><i class="fa-sharp fa-solid fa-phone"></i>WISHLIST</router-link>
+          </li>
+          <li class="nav-item end">
+            <router-link to="/cart"><i class="fa-sharp fa-solid fa-phone"></i>CART</router-link>
+          </li>
+          
+        <RouterLink to="/register"><i class="fa fa-pen-to-square"></i>REGISTER</RouterLink>
+        </li>
+        <li class="nav-item end">
+          <RouterLink to="/login"><i class="fa-sharp fa-solid fa-user"></i>LOGIN</RouterLink>
+        </li>
+            </ul>
+  
+        
+      </div>
+    </div>
+  </nav>
 </template>
 
-<style scoped>
-.hero{
-    background-image: url(https://i.postimg.cc/RhD7766Z/bubbly-sunday.jpg);
-}
+<script scope>
 
 
-
-
-
-
-</style>
+</script>
