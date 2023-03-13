@@ -12,6 +12,9 @@ const user = new User();
 // Product instance
 const product = new Product();
 
+//Search instance
+const SearchItem = SearchItem();
+
 //Create Cart instance
 const cart = new Cart();
 
@@ -71,6 +74,11 @@ bodyParser.json(),
 route.delete('/product/:id', 
 (req, res)=> {
     product.deleteProduct(req, res);
+    })
+// search a product
+route.search('/product/:id', 
+(req, res)=> {
+    product.SearchItem(req, res);
     })
 
 
