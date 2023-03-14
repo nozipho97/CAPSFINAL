@@ -130,7 +130,7 @@ class User {
                 if (err) throw err;
                 res.status(200).json({
                     msg:
-                        "An row was affected"
+                        "A row was affected"
                 });
             })
     }
