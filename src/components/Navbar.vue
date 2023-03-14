@@ -16,9 +16,12 @@
            <RouterLink to="/"><i class="fa fa-house"></i>HOME</RouterLink>
           </li> 
           <li class="nav-item">
+           <RouterLink to="/about"><i class="fa fa-house"></i>ABOUT</RouterLink>
+          </li> 
+          <li class="nav-item">
            <router-link to="/products"><i class=" fa fa-basket-shopping"></i>MENU</router-link> 
           </li>
-          <li class="nav-item">
+          <li  class="nav-item">
               <RouterLink to="/Admin"><i class="fa fa-user-pen"></i>ADMIN</RouterLink>
           </li>
           <li class="nav-item">
@@ -45,7 +48,17 @@
   </nav>
 </template>
 
-<script scope>
+<style scope>
+</style>
+
+<script>
+export default {
+  // data() {
+  //   return {
+  //     userRole:false
+  //   }
+  // }
+}
 
 
 </script>

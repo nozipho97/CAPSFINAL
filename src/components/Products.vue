@@ -1,8 +1,11 @@
 <template>
-    <h2>Our Products</h2>
+    <h2>Our Menu</h2>
   <form class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Search" style="width:7rem; justify-content:left; margin-left:50rem;" aria-label="Search" v-model="SearchItem">
   </form>
+  <button  class="btnSort">
+        <i class="fas fa-sort"></i> Sort by beverage
+      </button>
     <div class="row">
       <div class="col-6 col-sm-4 " v-for="product in products" :key="product.prodID">
           <div class="card">
@@ -15,6 +18,7 @@
           </div>
           </div>
         </div>
+    
     
   </template>
   <script>

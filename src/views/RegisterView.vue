@@ -3,30 +3,30 @@
       <form @submit.prevent="registration">
         <h2>Register</h2>
         <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname" v-model="firstName" required>
+        <input type="text" id="firstname" name="firstname" v-model="payload.firstName" required>
     
         <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname" v-model="lastName" required>
+        <input type="text" id="lastname" name="lastname" v-model="payload.lastName" required>
 
         <label for="gender">Gender:</label>
-        <input type="text" id="gender" name="gender" v-model="gender" required>
+        <input type="text" id="gender" name="gender" v-model="payload.gender" required>
 
-        <label for="userProfile">User Role</label>
-        <input type="text" id="profile" name="profile" v-model="userRole" required>
+        <label for="userProfile">User Role:</label>
+        <input type="text" id="profile" name="profile" v-model="payload.userRole" required>
     
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" v-model="emailAdd" required>
+        <input type="email" id="email" name="email" v-model="payload.emailAdd" required>
+    
+        <label for="number">Contact no:</label>
+        <input type="number" id="number" name="number" v-model="payload.cellPhoneNumber" required>
     
         <label for="date">JoinDate:</label>
-        <input type="date" id="date" name="date" v-model="joinDate" required>
+        <input type="date" id="date" name="date" v-model="payload.joinDate" required>
     
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" v-model="userPass" required>
-    
-        <label for="password">Confirm Password:</label>
-        <input type="confpassword" id="confpassword" name="confpassword" v-model="confirmedPass"  required>
-    
-        <button type="submit">Register</button>
+        <input type="password" id="password" name="password" v-model="payload.userPass" required>
+        
+        <button onclick="submit">Register</button>
       </form>
     </div>
     
@@ -34,45 +34,37 @@
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-data() {
-  return {
-    firstName: '',
-    lastName: '',
-    emailAdd: '',
-    userPass: '',
-    gender: '',
-    userRole: '',
-    joinDate:'',
-    confirmedPass: ''
-  }
-},
-computed: {
-  message() {
-    return this.$store.state.message
-  }
-},
-methods: {
-  registration() {
-    this.$store.dispatch('register', {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      emailAdd: this.emailAdd,
-      userPass: this.userPass,
-      gender: this.gender,
-      joinDate: this.joinDate,
-      userRole: this.userRole
-    })
-  }
-    },
-    methods: {
-        submit(e) {
-            e.preventDefault();
-            
-        }
-    },
+import {computed} from '@vue/runtime-core';
+import { useStore } from 'vuex';
 
+export default {
+  setup() {
+      const payload = {
+          firstName: '',
+          lastName: '',
+          gender: '',
+          cellPhoneNumber: '',
+          emailAdd: '',
+          userPass: '',
+          userProfile: 'https://i.postimg.cc/HLtYpsMc/person-icon-red-7540-1-removebg-preview.png',
+          joinDate: ''
+        };
+      const store = useStore();
+      const registration = () => {
+      store.dispatch("register", payload);
+      return (payload, alert('Registered.'));  
+      }
+      const usermessage= 
+      computed( () => store.state.message )
+      return {
+        payload,
+        usermessage,
+        registration,
+      }
+    
+      
+  },
+  
    
     
 }

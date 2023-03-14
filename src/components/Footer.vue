@@ -27,6 +27,7 @@
         align-items: center;
         flex-direction: column;
         margin-top: 20%;
+        
       }
       footer .social_icon,
       footer .menu {

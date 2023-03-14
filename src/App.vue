@@ -24,6 +24,7 @@ export default {
   text-align: center;
   scroll-snap-type: mandatory;
   scroll-behavior: smooth;
+  
 }
 
 nav {

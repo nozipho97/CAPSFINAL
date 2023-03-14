@@ -2,11 +2,10 @@
     <div>
         <div class="container">
           <h2>Users</h2>
-            <button
+          <button
           class="btnAddUser"
           data-bs-toggle="modal"
-          data-bs-target="#addAccomodation"
-        >
+          data-bs-target="#">
           <i class="fa-solid fa-plus"></i> New User
         </button>
   <div class="row">
@@ -34,7 +33,7 @@
       <td> {{ user.userRole }}</td>
       <td> {{ user.joinDate }}</td>
       <td><button type="button" class="btn btn-dark">Edit</button></td>
-      <td><button type="button" class="btn btn-dark">Delete</button></td>
+      <td><button @click="deleteUser">Delete</button></td>
      
     </tr>
   </tbody>
@@ -46,16 +45,13 @@
     <div>
       <div class="container">
         <h2>Products</h2>
-          <!-- <button
+        <button
         class="btnAddProduct"
         data-bs-toggle="modal"
-        data-bs-target="#addAccomodation"
+        data-bs-target=""
       >
-        <i class="fa-solid fa-plus"></i> Add Product
+        <router-link to="../components/addProduct.vue"><i class="fa-solid fa-plus"></i> Add Product</router-link>
       </button>
-      <button  class="btnSort">
-        <i class="fas fa-sort"></i> Sort by Price
-      </button> -->
 <div class="row">
   <table class="table">
 <thead>
@@ -75,7 +71,7 @@
     <td> {{ product.category }}</td>
     <td> {{ product.prodQuantity }}</td>
     <td><button type="button" name="click" class="btn btn-dark">Edit</button></td>
-    <td><button type="button" name="click2" class="btn btn-dark">Delete</button></td>
+    <td><button type="button">Delete</button></td>
     </tr>
 </tbody>
 </table>
@@ -87,9 +83,7 @@
 <script>
 import {computed} from '@vue/runtime-core';
 import { useStore } from 'vuex';
-
-
-
+// import  axios  from 'axios';
 
 export default {
 
@@ -108,6 +102,7 @@ export default {
   },
   
 }
+
 
 
 

@@ -1,14 +1,14 @@
 <template>
-    <h2>Sign Up</h2>
+    <h2>Login</h2>
     <div class="box">
           <form @submit.prevent="login">
             <label for="emailAdd">Email:</label>
-            <input type="text" id="email" name="email" required v-model="emailAdd">
+            <input type="text" id="email" name="email" required v-model="payload.emailAdd">
           
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required v-model="userPass">
+            <input type="password" id="password" name="password" required v-model="payload.userPass">
   
-            <button type="submit">Sign Up</button>
+            <button type="submit">Login</button>
           
           </form>
         </div>
@@ -19,28 +19,30 @@
   </template>
 
   <script>
-  
+import {computed} from '@vue/runtime-core';
+import { useStore } from 'vuex';
   export default {
-    data() { 
+    setup() {
+      const payload = {
+          emailAdd: '',
+          userPass: '',
+        };
+      const store = useStore();
+      const login = () => {
+      store.dispatch("login", payload);
+      console.log(payload);  
+      }
+      const usermessage= 
+      computed( () => store.state.message )
       return {
-        emailAdd: '',
-        userPass: '',
+        payload,
+        usermessage,
+        login,
+      
       }
-    },
-    computed: {
-      message() { 
-        return this.$store.state.message
-      }
-    },
-    methods: { 
-      login() { 
-        this.$store.dispatch('login', {
-          emailAdd: this.emailAdd,
-          userPass: this.userPass
-        })
-      }
-    },
-
+      
+    }
+   
   
   }
     
