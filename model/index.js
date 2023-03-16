@@ -109,7 +109,7 @@ class User {
                     maxAge: 3600000,
                     httpOnly: true
                 });
-                res.status(200).json({ msg: "A user record was saved." })
+                res.status(200).json({ msg: "You have successfully registered." })
             }
         }) 
     }
@@ -262,6 +262,9 @@ class Cart {
         })
     }
 }
+
+//search
+
 
 // Export classes 
 module.exports = {
