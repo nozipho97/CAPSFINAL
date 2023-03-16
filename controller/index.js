@@ -23,6 +23,7 @@ route.get('^/$|/finalProjectCap', (req, res)=>{
 // Login
 route.post('/login', bodyParser.json(), (req, res)=>{
     user.login(req, res);
+    
 })
 // Fetch a single user
 route.get('/user/:id', (req, res)=> {
