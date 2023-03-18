@@ -14,7 +14,7 @@ class User {
             WHERE emailAdd ='${emailAdd}';
             `;
     db.query(strQry, async (err, data) => {
-      if (err) throw err;
+      
       if (!data || data == null) {
         res.status(401).json({ err: "Please enter a correct email address" });
       } else {
@@ -49,7 +49,7 @@ class User {
   fetchUsers(req, res) {
     const strQry = `
             SELECT  
-            userID,firstName,lastName,gender,emailAdd,userRole,userProfile
+            userID, firstName, lastName, gender, emailAdd, userRole, userProfile, joinDate
             FROM users;
             `;
     db.query(strQry, (err, data) => {
