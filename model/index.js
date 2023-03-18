@@ -49,7 +49,15 @@ class User {
   fetchUsers(req, res) {
     const strQry = `
             SELECT  
-            userID, firstName, lastName, gender, emailAdd, userRole, userProfile, joinDate
+            userID,
+            firstName,
+            lastName,
+            gender,
+            emailAdd,
+            userRole,
+            userProfile,
+            joinDate,
+            cellPhoneNumber
             FROM users;
             `;
     db.query(strQry, (err, data) => {
