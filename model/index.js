@@ -69,7 +69,14 @@ class User {
   fetchUser(req, res) {
     const strQry = `
             SELECT  
-            userID,firstName,lastName,gender,emailAdd ,userRole,userProfile
+            userID,
+            firstName,
+            lastName,
+            cellPhoneNumber,
+            gender,
+            emailAdd,
+            userRole,
+            userProfile
             FROM users
             WHERE userID =?;
             `;
@@ -121,7 +128,7 @@ class User {
     db.query(strQry, [data, req.params.id], (err) => {
       if (err) throw err;
       res.status(200).json({
-        msg: "A row was affected",
+        msg: "An row was affected",
       });
     });
   }
@@ -200,15 +207,6 @@ class Product {
 
 //CART
 class Cart {
-  fetchProduct(req, res) {
-    const strQry = `SELECT prodID, prodName, prodDescription, prodPrice, prodQuantity, imgURL
-        FROM Products
-        WHERE prodID = ?;`;
-    db.query(strQry, [req.params.id], (err, results) => {
-      if (err) throw err;
-      res.status(200).json({ results: results });
-    });
-  }
   addProduct(req, res) {
     const strQry = `
         INSERT INTO Cart
