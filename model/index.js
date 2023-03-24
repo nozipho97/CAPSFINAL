@@ -207,7 +207,7 @@ class Product {
 
 //CART
 class Cart {
-  addProduct(req, res) {
+  addToCart(req, res) {
     const strQry = `
         INSERT INTO Cart
         SET ?;

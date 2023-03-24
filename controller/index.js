@@ -73,15 +73,8 @@ route.delete('/product/:id',
 (req, res)=> {
     product.deleteProduct(req, res);
     })
-// search a product
-// route.search('/product', 
-// (req, res)=> {
-//     product.SearchItem(req, res);
-//     })
-
 
 //Cart
-
 
 route.post('/user/:id/cart',
 bodyParser.json(),
