@@ -195,7 +195,7 @@ class Product {
   }
   deleteProduct(req, res) {
     const strQry = `
-        DELETE FROM Products
+        DELETE FROM Cart
         WHERE  prodID = ?;
         `;
     db.query(strQry, [req.params.id], (err) => {
@@ -220,10 +220,10 @@ class Cart {
       }
     });
   }
-  deleteProduct(req, res) {
+  removeCartItem(req, res) {
     const strQry = `
         DELETE FROM Cart
-        WHERE  prodID = ?;
+        WHERE  id = ?;
         `;
     db.query(strQry, [req.params.id], (err) => {
       if (err) res.status(400).json({ err: "The record was not found." });
@@ -231,21 +231,19 @@ class Cart {
     });
   }
   getCartItems(req, res) {
-    const qry = `SELECT id, prodID, userID, firstName, lastName, prodName, prodQuantity, prodPrice * prodQuantity as total, price 
-    FROM Cart 
-    INNER JOIN USERS ON USERS.userID = Cart.userID 
-    INNER JOIN Products ON Products.prodID = Cart.prodID 
-    WHERE Cart.userID=${req.params.id}; 
-    GROUP BY prodName ;
-    `;
+    const qry =`SELECT Cart.id, Cart.prodID, Cart.userID, users.firstname, users.lastname, Products.prodName,  Products.prodPrice * Cart.quantity as total, Products.prodPrice
+    FROM Cart
+    INNER JOIN users ON users.userID = Cart.userID
+    INNER JOIN Products ON Products.prodID = Cart.prodID
+    WHERE Cart.userID = ${req.params.id};`
     db.query(qry, (err, results) => {
       if (err) throw err;
       res.status(200).json({ results: results });
     });
   }
-  updateCart(req, res) {
+  updateCartItem(req, res) {
     const strQry = `
-    UPDATE Cart SET prodQuantity = ? WHERE id = ?
+    UPDATE Cart SET quantity = ? WHERE id = ?
         `;
     db.query(strQry, [req.body, req.params.id], (err) => {
       if (err) {
