@@ -7,34 +7,111 @@
     <title>Home</title>
 </head>
 <body>
-        <h2>Users Route Description</h2>
-        <table>
+        <h2>Route Description</h2>
+        <table class="table ">
             <thead>
-                <th>
-                    Method
-                </th>
-                <th>Path</th>
-                <th>Description</th>
+              <th>Method</th>
+              <th>Path</th>
+              <th>Description</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>get</td>
-                    <td>/</td>
-                    <td>To render the home page (index.html)</td>
-                    <td>FetcUsers</td>
-                    <td>/user</td>
-                    <td>get:Gets all users</td>
-                    <td>get</td>
-                    <td>/</td>
-                    <td>To render the home page (index.html)</td>
-                    <td>get</td>
-                    <td>/</td>
-                    <td>To render the home page (index.html)</td>
-                    <td>get</td>
-                    <td>/</td>
-                    <td>To render the home page (index.html)</td>
-                </tr>
-            </tbody>
+              <tr>
+                <td>GET</td>
+                <td>/</td>
+                <td>To render the home page (index.html)</td>
+              </tr>
+              <tr>
+        <td>GET</td>
+        <td>/users</td>
+        <td>To display all users.</td>
+        </tr>
+        
+        <tr>
+        <td>GET</td>
+        <Td>/user/:id</Td>
+        <td>To display a single user.</td>
+        </tr>
+        
+        <tr>
+        <td>POST</td>
+        <td>/register</td>
+        <td>Used to send user data to a server, by adding a new record.</td>
+        </tr>
+        <tr>
+        <td>POST</td>
+        <td>/login</td>
+        <td>login route fro the user </td>
+        </tr>
+        
+        <tr>
+        <td>PUT</td>
+        <td>/user/:id</td>
+        <td>Used to update your user data.</td>
+        </tr>
+        
+        <tr>
+        <td>DELETE</td>
+        <td>/user/:id</td>
+        <td>Used to delete user data from the server.</td>
+        </tr>
+        
+        <tr>
+        <td>GET</td>
+        <td>/products</td>
+        <td>Used to display all products.</td>
+        </tr>
+        
+        <tr>
+        <td>GET</td>
+        <td>/product/:id</td>
+        <td>Used to display a single product.</td>
+        </tr>
+        
+        <tr>
+        <td>POST</td>
+        <td>/add</td>
+        <td>Used to send product data to the server, by adding a new record.</td>
+        </tr>
+        
+        <tr>
+        <td>PUT</td>
+        <td>/product/:id</td>
+        <td>Used to update your products data.</td>
+        </tr>
+        
+        <tr>
+        <td>DELETE</td>
+        <td>/product/:id</td>
+        <td>Used to delete product data from the server.</td>
+        </tr>
+    
+        <tr>
+        <td>GET</td>
+        <td>/user/:id/cart</td>
+        <td>see all cart items </td>
+        </tr>
+    
+        <tr>
+        <td>POST</td>
+        <td>/user/:id/cart</td>
+        <td>Add item to cart </td>
+        </tr>
+        
+        <tr>
+        <td>PUT</td>
+        <td>/user/:id/cart</td>
+        <td>update cart item</td>
+        </tr>
+    
+        <tr>
+        <td>DELETE</td>
+        <td>/user/:id/cart</td>
+        <td>delete cart item </td>
+        </tr>
+    
+    
+        
+        </tbody>
         </table>
 </body>
 </html>
