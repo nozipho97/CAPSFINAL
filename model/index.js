@@ -230,9 +230,34 @@ class Cart {
       res.status(200).json({ msg: "A product was deleted." });
     });
   }
+  getCartItems(req, res) {
+    const qry = `SELECT id, prodID, userID, firstName, lastName, prodName, prodQuantity, prodPrice * prodQuantity as total, price 
+    FROM Cart 
+    INNER JOIN USERS ON USERS.userID = Cart.userID 
+    INNER JOIN Products ON Products.prodID = Cart.prodID 
+    WHERE Cart.userID=${req.params.id}; 
+    GROUP BY prodName ;
+    `;
+    db.query(qry, (err, results) => {
+      if (err) throw err;
+      res.status(200).json({ results: results });
+    });
+  }
+  updateCart(req, res) {
+    const strQry = `
+    UPDATE Cart SET prodQuantity = ? WHERE id = ?
+        `;
+    db.query(strQry, [req.body, req.params.id], (err) => {
+      if (err) {
+        res.status(400).json({ err: "Unable to update a record." });
+      } else {
+        res.status(200).json({ msg: "Product updated" });
+      }
+    });
+  }
 }
 
-//search
+
 
 // Export classes
 module.exports = {
